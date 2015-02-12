@@ -21,8 +21,10 @@ options(OutDec=",")
 ## de Peter Kloppenburg à l'Université de Cologne.
 ## Le fichier contenant les données POMC.txt est au format `ASCII` et ses 6 premières
 ## lignes sont une description textuelle des données et donnent les indications de lecture.
-## Ici, il nous suffit de faire :
-tmp <- scan("http://xtof.disque.math.cnrs.fr/data/POMC.txt",skip=6)
+## Ici, il nous suffit de faire (à partir du clone du dépôt GitHub):
+tmp <- scan("POMC.txt",skip=6)
+## Pour utiliser la copie des données sur mon site il faut faire :
+## tmp <- scan("http://xtof.disque.math.cnrs.fr/data/POMC.txt",skip=6)
 time <- tmp[1:168]
 stack <- array(tmp[-(1:168)],dim=c(60,80,168))
 rm(tmp)
@@ -296,9 +298,11 @@ où $p_{i,j} = c \phi_{i,j} v_{i,j} i_{e,i,j}$.
 ## Le jeu de données de calibration, enregistré par Andreas Pippow,
 ## se trouve sous forme de données R à l'adresse :
 ## http://xtof.disque.math.cnrs.fr/data/Gain.2nd.RData.
-## On le charge donc simplement dans R avec:
-download.file("http://xtof.disque.math.cnrs.fr/data/Gain.2nd.RData",
-              "Gain.2nd.RData",mode="wb")
+## Il se trouve également dans le dépôt GitHub.
+## Pour l'obtenir depuis mon site il faut faire:
+## download.file("http://xtof.disque.math.cnrs.fr/data/Gain.2nd.RData",
+##               "Gain.2nd.RData",mode="wb")
+## Depuis le clone du dépôt GitHub) on peut faire directement:
 load("Gain.2nd.RData")
 ```
 
